@@ -1,16 +1,16 @@
 
 let settings = {
     pomodoro: 25,
-    shortBreak: 5,
-    longBreak: 15,
+    shortbreak: 5,
+    longbreak: 15,
     font: "Kumbh Sans",
     color: "orange",
 };
 
 let settingsDefault = {
     pomodoro: 25,
-    shortBreak: 5,
-    longBreak: 15,
+    shortbreak: 5,
+    longbreak: 15,
     font: "Kumbh Sans",
     color: "orange",
 
@@ -32,7 +32,7 @@ document.querySelector('#settings > img').addEventListener('click', ()=>{
     settingsContainer.style.visibility = "visible";
     settingsContainer.style.opacity = 1;
 })
-
+//    where I can see applybg background style apllied
 const mapSettings = (setting, val) => {
     settings[setting] = val;
     document.querySelectorAll("form h2, form h4, #apply").forEach((item)=>{
@@ -48,8 +48,8 @@ const updateSettings = () => {
     document.body.style.fontfamily = settings.font;
 
     timer.pomodoro = settings.pomodoro;
-    this.shortBreak = settings.shortBreak;
-    this.longBreak = settings.longBreak;
+    timer.shortbreak = settings.shortbreak;
+    timer.longbreak = settings.longbreak;
 
     timer.reset();
 }
@@ -73,7 +73,7 @@ const fontButtons = document.querySelectorAll('.font');
 
 fontButtons.forEach((btn) => {
     
-    btn.addEventListener('click', (e)=>{
+    btn.addEventListener('click', ()=>{
        fontButtons.forEach((button) =>{
            button.classList.remove('fontactive')
 
@@ -94,30 +94,29 @@ fontButtons.forEach((btn) => {
 const colors = document.querySelectorAll('.color');
 
 colors.forEach((color) => {
-    color.addEventListener('click', (e)=>{
+    color.addEventListener('click', ()=>{
     
           if(color.classList.contains('orange')){
                mapSettings('color', 'orange');
            }
            else if(color.classList.contains('blue')){
             mapSettings('color', 'cyan');
-            console.log(e.currentTarget);
+            
            }else {
             mapSettings('color', 'purple');
            }
 
-           colors.forEach((color) =>{
-            color.classList.remove('coloractive');
+           colors.forEach((color) =>color.classList.remove('coloractive'))
             
-       })
+       
        color.classList.add('coloractive');
     })
 })
 
-applybg.addEventListener('click', (e)=>{
+apply.addEventListener('click', (e)=>{
     e.preventDefault();
-    updateSettings();
-    settingsDefault = settings;
+    updateSettings();   
+     settingsDefault = settings;
     settingsContainer.style.visibilty = 'hidden';
     settingsContainer.style.opacity = 0;
 })

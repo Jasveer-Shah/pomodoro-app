@@ -29,7 +29,7 @@ class Timer {
       let startTime = time;
       let minutes = 0;
       let seconds = 0;
-      console.log(time);
+      // console.log(time);
 
       time--
       this.interval = setInterval(() => {

@@ -12,7 +12,7 @@ const action = (action = "stop") => {
 
     }
 }
-
+// query 
 const navLinks = document.querySelectorAll(".nav > ul > li");
 const navBg = document.getElementById("indicator");
 
@@ -21,11 +21,18 @@ navLinks.forEach((navItem, i) =>{
        navLinks.forEach((nav)=>{
            nav.classList.remove('active');
            navBg.style.marginLeft = `calc(calc(100%/3)*${i})`;
-           navLinks.classList.add('active');
+           navItem.classList.add('active');
        })
    })
 });
 
+
+// const settingsContainer = document.getElementById('settingscontainer');
+
+// document.querySelector('#settings > img').addEventListener('click', ()=>{
+//    settingsContainer.style.visibility = 'visible';
+//    settingsContainer.style.opacity = 1; 
+// })
 
 
 
