@@ -3,7 +3,7 @@ class Timer {
         this.type = type;
         this.pomodoro = 25;
         this.shortbreak = 5;
-        this.longbreak = 15;
+        this.longbreak = 20;
         this.timeElement = window[type];
         this.clock = document.getElementById('time');
         this.actionElement = document.getElementById('action');

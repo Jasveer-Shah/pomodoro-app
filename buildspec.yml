@@ -1,0 +1,18 @@
+version: 0.2
+
+phases:
+  pre_build:
+    commands:
+      - aws ecr get-login-password --region us-west-1 | docker login --username AWS --password-stdin 580907577244.dkr.ecr.us-west-1.amazonaws.com
+  build:
+    commands:
+      - docker build -t pomodoro .
+      - docker tag pomodoro:latest 580907577244.dkr.ecr.us-west-1.amazonaws.com/pomodoro:latest
+  post_build:
+    commands:
+      - docker push 580907577244.dkr.ecr.us-west-1.amazonaws.com/pomodoro:latest
+      # printf '[{"name":"Container name","imageUri":"580907577244.dkr.ecr.us-west-1.amazonaws.com/pomodoro:latest"}]'  > imagedefinitions.json
+      - printf '[{"name":"pomodoro","imageUri":"580907577244.dkr.ecr.us-west-1.amazonaws.com/pomodoro:latest"}]'  > imagedefinitions.json
+artifacts:
+  files: 
+    - imagedefinitions.json
