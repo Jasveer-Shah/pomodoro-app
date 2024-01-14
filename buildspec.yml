@@ -16,3 +16,4 @@ phases:
 artifacts:
   files: 
     - imagedefinitions.json
+    #describes your Amazon ECS image URI - from this file`s specifications ECS cluster creates the container tasks for our application
