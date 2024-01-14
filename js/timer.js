@@ -2,8 +2,8 @@ class Timer {
     constructor(type = "pomodoro"){
         this.type = type;
         this.pomodoro = 25;
-        this.shortbreak = 7;
-        this.longbreak = 20;
+        this.shortbreak = 3;
+        this.longbreak = 17;
         this.timeElement = window[type];
         this.clock = document.getElementById('time');
         this.actionElement = document.getElementById('action');
